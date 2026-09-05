@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dari Map Cidro Sampai Sekarang 🎮❤️</title>
+    <!-- Google Fonts & Canvas Confetti -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- AUDIO ELEMENTS -->
+    <!-- Ganti 'bgm.mp3' dengan file musik pilihanmu (misal lagu bernuansa Roblox / chiptune / ceria) -->
+    <audio id="bgm" loop preload="auto">
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Tombol Floating Music Control -->
+    <button id="music-control" class="music-btn" onclick="toggleMusic()">
+        🎵 <span id="music-status">Play</span>
+    </button>
+
+    <!-- 1. LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="roblox-card">
+            <div class="roblox-logo">🎮</div>
+            <p class="loading-text">Loading friendship story...</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <span class="progress-number" id="progress-number">0%</span>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main id="main-content" class="hidden">
+
+        <!-- 2. OPENING -->
+        <section id="opening" class="section active">
+            <div class="floating-icons">✨ 🎮 🎈 🎂 ⭐</div>
+            <div class="card">
+                <h1 class="pixel-text bounce">Happy Birthday, Lutfi! 🎉</h1>
+                <p class="subtext">Tapi sebelum sampai ke ucapan ulang tahun...</p>
+                <p class="highlight-text">Ada satu cerita random yang harus kita ingat dulu.</p>
+                <button class="btn-primary" onclick="startStoryWithMusic()">Mulai Cerita 🎮</button>
+            </div>
+        </section>
+
+        <!-- 3. THE RANDOM MEETING -->
+        <section id="story" class="section">
+            <div class="card">
+                <h2>Semuanya berawal dari sini...</h2>
+                <div class="roblox-scene">
+                    <span class="badge">Map Cidro 🗺️</span>
+                    <p class="story-text">aku yang nggak sengaja ketemu <strong>Jeje</strong> di map Cidro Roblox.</p>
+                    <p class="story-text fade-in-text">Dan ternyata Jeje punya teman rl yang main roblox bernama <strong>Lutfi</strong>...</p>
+                    <p class="story-text fade-in-text">akhirnya aku dikenalin!</p>
+                </div>
+
+                <!-- Chat Bubbles -->
+                <div class="chat-container">
+                    <div class="chat-bubble jeje">
+                        <span class="sender">Jeje</span>
+                        <p>Lynn Kenalin, ini vivie temen aku.</p>
+                    </div>
+                    <div class="chat-bubble me">
+                        <span class="sender">Aku</span>
+                        <p>awoo viviee </p>
+                    </div>
+                    <div class="chat-bubble lutfi">
+                        <span class="sender">Lutfi</span>
+                        <p>awoo lynn.</p>
+                    </div>
+                </div>
+
+                <p class="caption-text">Dan dari percakapan random itu, semuanya dimulai. 😂</p>
+                <button class="btn-primary" onclick="goToSection('relationship')">Lanjut ➡️</button>
+            </div>
+        </section>
+
+        <!-- 4. THREE RANDOM PEOPLE -->
+        <section id="relationship" class="section">
+            <div class="card">
+                <h2>3 Random People 🤝</h2>
+                
+                <div class="avatar-map">
+                    <div class="avatar-node">
+                        <div class="avatar">🙋‍♂️</div>
+                        <span>Aku</span>
+                    </div>
+                    <div class="line"></div>
+                    <div class="avatar-node">
+                        <div class="avatar">🎧</div>
+                        <span>Jeje</span>
+                    </div>
+                    <div class="line"></div>
+                    <div class="avatar-node">
+                        <div class="avatar">🎮</div>
+                        <span>Lutfi</span>
+                    </div>
+                </div>
+
+                <ul class="timeline-list">
+                    <li>Awalnya cuma kenal karena Roblox...</li>
+                    <li>Terus jadi sering chatan...</li>
+                    <li>Terus jadi teman...</li>
+                    <li>Dan ternyata sampai sekarang masih berteman!</li>
+                </ul>
+
+                <p class="plot-twist">Plot twist yang nggak direncanakan 😂</p>
+                <button class="btn-primary" onclick="goToSection('memories')">Lihat Scrapbook 📸</button>
+            </div>
+        </section>
+
+        <!-- 5. OUR MEMORIES -->
+        <section id="memories" class="section">
+            <div class="card">
+                <h2>Random moments we somehow collected 📸</h2>
+                
+                <div class="scrapbook-grid">
+                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/FFB6C1/333333?text=Screenshot+Roblox', 'The Cidro incident 🎮')">
+                        <img src="https://via.placeholder.com/300x200/FFB6C1/333333?text=Screenshot+Roblox" alt="Roblox">
+                        <p>The Cidro incident 🎮</p>
+                    </div>
+                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/FFD1DC/333333?text=Foto+Jeje', 'Awal mula kenal Jeje')">
+                        <img src="https://via.placeholder.com/300x200/FFD1DC/333333?text=Foto+Jeje" alt="Jeje">
+                        <p>Awal mula kenal Jeje</p>
+                    </div>
+                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/E6E6FA/333333?text=Foto+Lutfi', 'Ketika Jeje ngenalin Lutfi')">
+                        <img src="https://via.placeholder.com/300x200/E6E6FA/333333?text=Foto+Lutfi" alt="Lutfi">
+                        <p>Ketika Jeje ngenalin Lutfi</p>
+                    </div>
+                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/CBF0F8/333333?text=Screenshot+Chat', 'Dari stranger jadi teman')">
+                        <img src="https://via.placeholder.com/300x200/CBF0F8/333333?text=Screenshot+Chat" alt="Chat">
+                        <p>Dari stranger jadi teman</p>
+                    </div>
+                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/E7C6FF/333333?text=Momen+Random', 'And somehow we\'re still here 😂')">
+                        <img src="https://via.placeholder.com/300x200/E7C6FF/333333?text=Momen+Random" alt="Random">
+                        <p>And somehow we're still here 😂</p>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="goToSection('message')">Buka Surat 💌</button>
+            </div>
+        </section>
+
+        <!-- Modal Image Viewer -->
+        <div id="image-modal" class="modal" onclick="closeModal()">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" id="modal-img">
+            <div id="modal-caption"></div>
+        </div>
+
+        <!-- 6. SPECIAL MESSAGE FOR LUTFI -->
+        <section id="message" class="section">
+            <div class="card">
+                <h2>A Little Birthday Message For Lutfi 💌</h2>
+                
+                <div class="envelope-wrapper" onclick="openEnvelope()">
+                    <div class="envelope" id="envelope">
+                        <div class="front flap"></div>
+                        <div class="front pocket"></div>
+                        <div class="letter">
+                            <p class="click-notice">Click to open letter! ✉️</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="typed-message-container" class="hidden">
+                    <div class="letter-paper">
+                        <p id="typed-text"></p>
+                    </div>
+                    <button id="cake-btn" class="btn-primary hidden" onclick="goToSection('cake')">Tiup Lilin 🎂</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. BIRTHDAY CAKE -->
+        <section id="cake" class="section">
+            <div class="card">
+                <h2>Lutfi, make a wish! ✨</h2>
+                <p class="instruction">Klik semua lilin untuk mematikan apinya!</p>
+                
+                <div class="cake-container">
+                    <div class="candles">
+                        <div class="candle" onclick="blowCandle(this)">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" onclick="blowCandle(this)">
+                            <div class="flame"></div>
+                        </div>
+                        <div class="candle" onclick="blowCandle(this)">
+                            <div class="flame"></div>
+                        </div>
+                    </div>
+                    <div class="cake-top"></div>
+                    <div class="cake-middle"></div>
+                    <div class="cake-bottom"></div>
+                </div>
+
+                <div id="wish-status" class="hidden">
+                    <p class="wish-text">Wish sent! ✨</p>
+                    <p class="subtext">Semoga terkabul yaa!</p>
+                    <button class="btn-primary" onclick="goToSection('surprise')">Ke Kejutan Akhir 🎁</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FINAL SURPRISE -->
+        <section id="surprise" class="section">
+            <div class="card">
+                <div id="surprise-text-sequence">
+                    <p class="step-text" id="step1">Siapa sangka...</p>
+                    <p class="step-text" id="step2">Ketemu Jeje secara nggak sengaja...</p>
+                    <p class="step-text" id="step3">di map Cidro...</p>
+                    <p class="step-text" id="step4">terus dikenalin sama Lutfi...</p>
+                    <p class="step-text" id="step5">dan akhirnya...</p>
+                </div>
+
+                <div id="final-reveal" class="hidden">
+                    <h1 class="highlight-title">KITA MASIH TEMENAN SAMPAI SEKARANG 😂❤️</h1>
+                    <h2 class="pixel-text">HAPPY BIRTHDAY LUTFI! 🎂🎉</h2>
+                    <p class="final-subtext">Semoga hari ulang tahunmu menyenangkan dan semoga cerita random dari Roblox ini punya banyak chapter berikutnya.</p>
+                    
+                    <button class="btn-primary" onclick="restartStory()">Replay Our Story 🔄</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

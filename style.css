@@ -1,0 +1,470 @@
+:root {
+    --bg-color: #fce4ec;
+    --card-bg: #ffffff;
+    --primary-color: #ff6b81;
+    --secondary-color: #70a1ff;
+    --accent-color: #fffa65;
+    --text-color: #2f3542;
+    --roblox-blue: #00a2ff;
+    --font-main: 'Fredoka', sans-serif;
+    --font-pixel: 'Press Start 2P', cursive;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.roblox-card {
+    background: #2d2d2d;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    width: 85%;
+    max-width: 320px;
+}
+
+.roblox-logo {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.loading-text {
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+    margin-bottom: 15px;
+    color: #00a2ff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 15px;
+    background: #444;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--roblox-blue);
+    transition: width 0.1s linear;
+}
+
+.progress-number {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Main Content & Sections */
+#main-content {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.section.active {
+    display: block;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 3px solid #fff;
+    position: relative;
+}
+
+/* Text styles */
+.pixel-text {
+    font-family: var(--font-pixel);
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.subtext {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.highlight-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 107, 129, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 15px;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+/* Chat Bubbles */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.chat-bubble {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+    text-align: left;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.chat-bubble .sender {
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.chat-bubble.jeje {
+    background: #e1f5fe;
+    align-self: flex-start;
+}
+
+.chat-bubble.me {
+    background: #ffe0b2;
+    align-self: flex-end;
+}
+
+.chat-bubble.lutfi {
+    background: #e8f5e9;
+    align-self: flex-start;
+}
+
+.badge {
+    background: var(--roblox-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Avatar Map */
+.avatar-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.avatar-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border: 2px solid var(--secondary-color);
+}
+
+.line {
+    height: 2px;
+    width: 30px;
+    background: var(--secondary-color);
+}
+
+.timeline-list {
+    text-align: left;
+    list-style-type: "👉 ";
+    padding-left: 20px;
+    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.plot-twist {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 10px;
+}
+
+/* Scrapbook / Polaroid */
+.scrapbook-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.polaroid {
+    background: white;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    transform: rotate(-2deg);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.polaroid p {
+    font-size: 0.75rem;
+    margin-top: 5px;
+    color: #555;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-content {
+    max-width: 85%;
+    max-height: 70%;
+    border-radius: 8px;
+}
+
+#modal-caption {
+    color: white;
+    margin-top: 10px;
+}
+
+/* Envelope / Message */
+.envelope-wrapper {
+    margin: 30px auto;
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.envelope {
+    width: 100%;
+    height: 100%;
+    background: #ff7675;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.envelope .letter {
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.letter-paper {
+    background: #fffdf0;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px dashed #ccc;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 15px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+}
+
+/* Cake Section */
+.cake-container {
+    margin: 40px auto 20px;
+    width: 150px;
+    position: relative;
+}
+
+.cake-bottom {
+    width: 150px;
+    height: 40px;
+    background: #ff9ff3;
+    border-radius: 10px 10px 0 0;
+}
+
+.cake-middle {
+    width: 120px;
+    height: 35px;
+    background: #feca57;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.cake-top {
+    width: 90px;
+    height: 30px;
+    background: #ff6b6b;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.candles {
+    display: flex;
+    justify-content: space-around;
+    width: 70px;
+    margin: 0 auto;
+    position: relative;
+    top: 5px;
+}
+
+.candle {
+    width: 8px;
+    height: 25px;
+    background: #54a0ff;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.flame {
+    width: 10px;
+    height: 12px;
+    background: #ff9f43;
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -12px;
+    left: -1px;
+    animation: flicker 0.6s infinite alternate;
+}
+
+.flame.off {
+    display: none;
+}
+
+/* Animations */
+@keyframes flicker {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-text {
+    font-size: 1.15rem;
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateY(15px); /* Teks sedikit meluncur dari bawah */
+    transition: opacity 1.2s ease, transform 1.2s ease; /* Transisi halus 1.2 detik */
+}
+
+.step-text.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.highlight-title {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+/* Floating Music Button Control */
+.music-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.music-btn:active {
+    transform: scale(0.92);
+}
