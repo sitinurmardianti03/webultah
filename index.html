@@ -12,7 +12,6 @@
 <body>
 
     <!-- AUDIO ELEMENTS -->
-    <!-- Ganti 'bgm.mp3' dengan file musik pilihanmu (misal lagu bernuansa Roblox / chiptune / ceria) -->
     <audio id="bgm" loop preload="auto">
         <source src="bgm.mp3" type="audio/mpeg">
     </audio>
@@ -54,9 +53,9 @@
                 <h2>Semuanya berawal dari sini...</h2>
                 <div class="roblox-scene">
                     <span class="badge">Map Cidro 🗺️</span>
-                    <p class="story-text">aku yang nggak sengaja ketemu <strong>Jeje</strong> di map Cidro Roblox.</p>
+                    <p class="story-text">Aku yang nggak sengaja ketemu <strong>Jeje</strong> di map Cidro Roblox.</p>
                     <p class="story-text fade-in-text">Dan ternyata Jeje punya teman rl yang main roblox bernama <strong>Lutfi</strong>...</p>
-                    <p class="story-text fade-in-text">akhirnya aku dikenalin!</p>
+                    <p class="story-text fade-in-text">Akhirnya aku dikenalin!</p>
                 </div>
 
                 <!-- Chat Bubbles -->
@@ -67,7 +66,7 @@
                     </div>
                     <div class="chat-bubble me">
                         <span class="sender">Aku</span>
-                        <p>awoo viviee </p>
+                        <p>awoo viviee</p>
                     </div>
                     <div class="chat-bubble lutfi">
                         <span class="sender">Lutfi</span>
@@ -158,14 +157,17 @@
             <div class="card">
                 <h2>A Little Birthday Message For Lutfi 💌</h2>
                 
+                <!-- AMPLOP REALISTIS INTERAKTIF -->
                 <div class="envelope-wrapper" onclick="openEnvelope()">
                     <div class="envelope" id="envelope">
-                        <div class="front flap"></div>
-                        <div class="front pocket"></div>
-                        <div class="letter">
-                            <p class="click-notice">Click to open letter! ✉️</p>
+                        <div class="flap"></div>
+                        <div class="pocket"></div>
+                        <div class="letter-preview">
+                            <span class="preview-text">Surat Spesial 📜</span>
                         </div>
+                        <div class="heart-seal">❤️</div>
                     </div>
+                    <p class="click-hint">Sentuh amplop untuk membuka ✉️</p>
                 </div>
 
                 <div id="typed-message-container" class="hidden">
@@ -182,22 +184,48 @@
             <div class="card">
                 <h2>Lutfi, make a wish! ✨</h2>
                 <p class="instruction">Klik semua lilin untuk mematikan apinya!</p>
-                
+
                 <div class="cake-container">
+                    <!-- Lilin & Api -->
                     <div class="candles">
                         <div class="candle" onclick="blowCandle(this)">
+                            <div class="stripe"></div>
                             <div class="flame"></div>
+                            <div class="smoke"></div>
                         </div>
                         <div class="candle" onclick="blowCandle(this)">
+                            <div class="stripe"></div>
                             <div class="flame"></div>
+                            <div class="smoke"></div>
                         </div>
                         <div class="candle" onclick="blowCandle(this)">
+                            <div class="stripe"></div>
                             <div class="flame"></div>
+                            <div class="smoke"></div>
                         </div>
                     </div>
-                    <div class="cake-top"></div>
-                    <div class="cake-middle"></div>
-                    <div class="cake-bottom"></div>
+
+                    <!-- Kue Bertingkat -->
+                    <div class="cake-body">
+                        <!-- Tingkat Atas -->
+                        <div class="cake-tier tier-top">
+                            <div class="drip drip-top"></div>
+                            <div class="cherry">🍒</div>
+                        </div>
+                        <!-- Tingkat Tengah -->
+                        <div class="cake-tier tier-middle">
+                            <div class="drip drip-middle"></div>
+                            <div class="decor-dots"><span></span><span></span><span></span></div>
+                        </div>
+                        <!-- Tingkat Bawah -->
+                        <div class="cake-tier tier-bottom">
+                            <div class="drip drip-bottom"></div>
+                            <div class="decor-dots"><span></span><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Piring / Alas Kue -->
+                    <div class="cake-plate"></div>
                 </div>
 
                 <div id="wish-status" class="hidden">
