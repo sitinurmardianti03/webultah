@@ -312,30 +312,105 @@ body {
     margin-top: 10px;
 }
 
-/* Envelope / Message */
+/* ==================== ENVELOPE DESIGN (REALISTIC) ==================== */
 .envelope-wrapper {
-    margin: 30px auto;
-    width: 150px;
-    height: 100px;
+    margin: 35px auto;
+    width: 220px;
+    position: relative;
     cursor: pointer;
+    perspective: 1000px;
 }
 
 .envelope {
-    width: 100%;
-    height: 100%;
+    width: 220px;
+    height: 140px;
     background: #ff7675;
     position: relative;
-    border-radius: 5px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.envelope-wrapper:hover .envelope {
+    transform: translateY(-5px);
+}
+
+/* Lipatan Atas Amplop */
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 80px solid #d63031;
+    transform-origin: top;
+    transition: transform 0.4s ease;
+    z-index: 3;
+}
+
+/* Kantong Depan Amplop */
+.envelope .pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 110px solid #ff6b81;
+    border-right: 110px solid #ff6b81;
+    border-bottom: 70px solid #ff4757;
+    border-top: 70px solid transparent;
+    border-radius: 0 0 10px 10px;
+    z-index: 2;
+}
+
+/* Isian Kertas Didalam Amplop */
+.envelope .letter-preview {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 190px;
+    height: 100px;
+    background: #fffdf0;
+    border-radius: 6px;
+    border: 1px dashed #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 1;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
 }
 
-.envelope .letter {
-    color: white;
-    font-size: 0.8rem;
-    text-align: center;
+.preview-text {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Segel Hati */
+.heart-seal {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.4rem;
+    z-index: 4;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.click-hint {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: bold;
+    animation: pulseHint 1.5s infinite alternate;
+}
+
+@keyframes pulseHint {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
 }
 
 .letter-paper {
@@ -350,98 +425,198 @@ body {
     box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
 }
 
-/* Cake Section */
-.cake-container {
-    margin: 40px auto 20px;
-    width: 150px;
+/* ==================== CAKE DESIGN (ISOLATED TO #CAKE) ==================== */
+#cake .cake-container {
+    margin: 40px auto 25px;
+    width: 220px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.cake-bottom {
-    width: 150px;
+#cake .cake-plate {
+    width: 240px;
+    height: 14px;
+    background: linear-gradient(to right, #e0e0e0, #ffffff, #d6d6d6);
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    margin-top: -2px;
+}
+
+#cake .cake-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#cake .cake-tier {
+    position: relative;
+    border-radius: 12px 12px 6px 6px;
+    box-shadow: inset -8px 0 12px rgba(0, 0, 0, 0.08);
+}
+
+#cake .tier-top {
+    width: 100px;
     height: 40px;
-    background: #ff9ff3;
-    border-radius: 10px 10px 0 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    z-index: 3;
 }
 
-.cake-middle {
-    width: 120px;
-    height: 35px;
-    background: #feca57;
-    margin: 0 auto;
-    border-radius: 10px 10px 0 0;
+#cake .tier-middle {
+    width: 150px;
+    height: 48px;
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    margin-top: -4px;
+    z-index: 2;
 }
 
-.cake-top {
-    width: 90px;
-    height: 30px;
-    background: #ff6b6b;
-    margin: 0 auto;
-    border-radius: 10px 10px 0 0;
+#cake .tier-bottom {
+    width: 190px;
+    height: 55px;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    margin-top: -4px;
+    z-index: 1;
 }
 
-.candles {
+#cake .drip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: #ffffff;
+    border-radius: 10px 10px 8px 8px;
+    opacity: 0.9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#cake .drip::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 15%;
+    width: 70%;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
+}
+
+#cake .cherry {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+#cake .decor-dots {
     display: flex;
     justify-content: space-around;
-    width: 70px;
-    margin: 0 auto;
-    position: relative;
-    top: 5px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    padding: 0 15px;
 }
 
-.candle {
-    width: 8px;
-    height: 25px;
-    background: #54a0ff;
-    border-radius: 3px;
+#cake .decor-dots span {
+    width: 7px;
+    height: 7px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#cake .candles {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    position: relative;
+    top: 6px;
+    z-index: 10;
+}
+
+#cake .candle {
+    width: 12px;
+    height: 32px;
+    background: #ff6b81;
+    border-radius: 4px;
     position: relative;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    overflow: visible;
 }
 
-.flame {
-    width: 10px;
-    height: 12px;
-    background: #ff9f43;
+#cake .candle .stripe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 4px,
+        rgba(255, 255, 255, 0.7) 4px,
+        rgba(255, 255, 255, 0.7) 8px
+    );
+    border-radius: 4px;
+}
+
+#cake .candle::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 5px;
+    background: #333;
+}
+
+#cake .flame {
+    width: 14px;
+    height: 18px;
+    background: radial-gradient(circle, #fff 20%, #fffa65 50%, #ff4757 100%);
     border-radius: 50% 50% 20% 20%;
     position: absolute;
-    top: -12px;
-    left: -1px;
-    animation: flicker 0.6s infinite alternate;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flameFlicker 0.6s infinite alternate ease-in-out;
+    box-shadow: 0 0 12px #fffa65, 0 0 20px #ff4757;
 }
 
-.flame.off {
+#cake .flame.off {
+    display: none !important;
+}
+
+#cake .smoke {
     display: none;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 15px;
+    background: rgba(200, 200, 200, 0.6);
+    border-radius: 50%;
+    filter: blur(3px);
+    animation: smokeRise 1s forwards ease-out;
 }
 
-/* Animations */
-@keyframes flicker {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.2); }
+#cake .smoke.active {
+    display: block;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes flameFlicker {
+    0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+    100% { transform: translateX(-50%) scale(1.15) rotate(2deg); }
 }
 
-.step-text {
-    font-size: 1.15rem;
-    margin: 20px 0;
-    opacity: 0;
-    transform: translateY(15px); /* Teks sedikit meluncur dari bawah */
-    transition: opacity 1.2s ease, transform 1.2s ease; /* Transisi halus 1.2 detik */
-}
-
-.step-text.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.highlight-title {
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+@keyframes smokeRise {
+    0% { opacity: 0.8; transform: translateX(-50%) translateY(0) scale(0.8); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-25px) scale(1.8); }
 }
 
 /* Floating Music Button Control */
@@ -467,4 +642,45 @@ body {
 
 .music-btn:active {
     transform: scale(0.92);
+}
+
+/* ANIMASI KELOPAK BUNGA & SPARKLE */
+.flower-petal {
+    position: fixed;
+    bottom: -50px;
+    font-size: 1.8rem;
+    pointer-events: none;
+    z-index: 9999;
+    animation: floatUp 4s linear forwards;
+    filter: drop-shadow(0 0 6px rgba(255, 182, 193, 0.8));
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.6);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.step-text {
+    font-size: 1.15rem;
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.step-text.show {
+    opacity: 1;
+    transform: translateY(0);
 }
