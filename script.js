@@ -3,7 +3,6 @@ const bgm = document.getElementById('bgm');
 const musicStatus = document.getElementById('music-status');
 let isMusicPlaying = false;
 
-// Audio Synthesizer (SFX Murni tanpa file tambahan)
 function playSound(type) {
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -19,16 +18,24 @@ function playSound(type) {
             osc.start();
             osc.stop(audioCtx.currentTime + 0.05);
         } else if (type === 'blow') {
-            // Suara tiup lilin
             osc.type = 'triangle';
             osc.frequency.setValueAtTime(150, audioCtx.currentTime);
             gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
             gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
             osc.start();
             osc.stop(audioCtx.currentTime + 0.15);
+        } else if (type === 'firework') {
+            // Suara ledakan petasan lembut
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.3);
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.3);
         }
     } catch (e) {
-        // Fallback jika AudioContext tidak didukung
+        // Fallback jika tidak didukung
     }
 }
 
@@ -162,28 +169,108 @@ function openEnvelope() {
     isTyped = true;
 }
 
-// 5. CANDLE BLOWING INTERACTION
+// FUNGSI MEMUNCULKAN ANIMASI BUNGA BERBANGKIT DARI BAWAH LAYAR 🌸✨
+function spawnFlowers() {
+    const flowerTypes = ['🌸', '🌺', '🌹', '🌼', '✨', '💖', '🌷'];
+    const totalFlowers = 35; // Jumlah total bunga yang bermunculan
+
+    for (let i = 0; i < totalFlowers; i++) {
+        setTimeout(() => {
+            const flower = document.createElement('div');
+            flower.className = 'flower-petal';
+            
+            // Pilih emoji bunga secara acak
+            flower.innerText = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+            
+            // Posisi horizontal acak di sepanjang lebar layar
+            flower.style.left = Math.random() * 92 + 'vw';
+            
+            // Ukuran dan durasi melayang sedikit bervariasi agar natural
+            const duration = 3 + Math.random() * 2.5; // 3 - 5.5 detik
+            flower.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(flower);
+
+            // Hapus elemen setelah selesai animasi biar web tidak berat
+            setTimeout(() => {
+                flower.remove();
+            }, duration * 1000);
+        }, i * 120); // Jeda kemunculan tiap bunga (120ms)
+    }
+}
+
+// 5. CANDLE BLOWING INTERACTION + ANIMASI PETASAN & BUNGA 🎆🌸
 let candlesBlown = 0;
 
 function blowCandle(candleElement) {
     const flame = candleElement.querySelector('.flame');
-    if (!flame.classList.contains('off')) {
+    const smoke = candleElement.querySelector('.smoke');
+
+    if (flame && !flame.classList.contains('off')) {
         playSound('blow');
         flame.classList.add('off');
+        
+        // Munculkan efek asap sekejap
+        if (smoke) {
+            smoke.classList.add('active');
+            setTimeout(() => smoke.classList.remove('active'), 1000);
+        }
+
         candlesBlown++;
 
         if (candlesBlown === 3) {
             setTimeout(() => {
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                });
+                // 🌸 1. Munculkan animasi bunga melayang
+                spawnFlowers();
 
+                // 🎆 2. Luncurkan petasan / fireworks
+                launchFireworks();
+
+                // 3. Tampilkan pesan "Wish sent!"
                 document.getElementById('wish-status').classList.remove('hidden');
-            }, 400);
+            }, 500);
         }
     }
+}
+// Fungsi Efek Petasan Meriah berturut-turut (Fireworks Burst)
+function launchFireworks() {
+    // Bunyi efek suara petasan/ledakan kecil
+    playSound('firework');
+
+    const duration = 3.5 * 1000; // Durasi petasan menyala 3.5 detik
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    // Interval luncuran petasan kiri & kanan
+    const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+            return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+
+        // Petasan meletus dari sisi kiri layar
+        confetti({
+            ...defaults,
+            particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+            colors: ['#ff4757', '#ffa502', '#2ed573', '#1e90ff', '#eccc68']
+        });
+
+        // Petasan meletus dari sisi kanan layar
+        confetti({
+            ...defaults,
+            particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+            colors: ['#ff6b81', '#70a1ff', '#fffa65', '#ffffff', '#ff7675']
+        });
+    }, 250);
 }
 
 // 6. FINAL SURPRISE SEQUENCE
@@ -223,3 +310,4 @@ function restartStory() {
 
     goToSection('opening');
 }
+
