@@ -141,7 +141,7 @@ Semoga di umur yang baru ini makin banyak pengalaman seru, makin banyak hal yang
 Sekali lagi, Happy Birthday, Lutfi! 🎂🎉
 Semoga pertemanan random yang awalnya dari Roblox ini bisa terus berlanjut sampai lama.
 
-— Dari temanmu yang awalnya cuma random ketemu Jeje di Cidro 😂❤️`;
+— Dari temanmu yang imut 🤭❤️(maaf yaa alay, kita bertiga kan emang alay🤪)`;
 
 let isTyped = false;
 
