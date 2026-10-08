@@ -128,20 +128,21 @@ function closeModal() {
 // 4. SPECIAL MESSAGE TYPING EFFECT
 const messageText = `Happy Birthday, Lutfi! 🎂🎉
 
-Kalau dipikir-pikir lucu juga gimana awalnya kita bisa kenal.
-Aku awalnya cuma nggak sengaja ketemu Jeje di map Cidro Roblox. Terus dari Jeje aku malah dikenalin sama kamu.
+Kalau dipikir-pikir lucu juga ya gimana awalnya kita bisa kenal.
+Aku awalnya cuma nggak sengaja ketemu Jeje di map Cidro Roblox, lalu dari Jeje aku malah dikenalin sama kamu.
 
-Awalnya cuma pertemuan random di game, tapi ternyata dari situ kita bisa jadi teman sampai sekarang.
-Mungkin kalau waktu itu aku nggak ketemu Jeje di Cidro, belum tentu kita bakal saling kenal 😂
+Awalnya cuma pertemuan random di game, tapi ternyata dari situ kita bisa jadi teman baik sampai sekarang.
+Mungkin kalau waktu itu aku nggak ketemu Jeje di Cidro, belum tentu kita bertiga bakal saling kenal 😂
 
-Jadi di hari ulang tahun kamu ini, aku cuma mau bilang semoga kamu selalu sehat, bahagia, dan semua hal baik datang ke kamu.
+Jadi di hari ulang tahun kamu ini, aku cuma mau bilang semoga kamu selalu sehat, bahagia, dan semua hal baik selalu datang ke kamu.
 
 Semoga di umur yang baru ini makin banyak pengalaman seru, makin banyak hal yang bisa dibanggakan, dan tentunya makin banyak momen random yang bisa kita ceritain nanti.
 
 Sekali lagi, Happy Birthday, Lutfi! 🎂🎉
 Semoga pertemanan random yang awalnya dari Roblox ini bisa terus berlanjut sampai lama.
 
-— Dari temanmu yang imut 🤭❤️(maaf yaa alay, kita bertiga kan emang alay🤪)`;
+— Dari temanmu yang imut 🤭❤️
+(maaf yaa alay, kita bertiga kan emang alay🤪)`;
 
 let isTyped = false;
 
