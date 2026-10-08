@@ -220,16 +220,24 @@ body {
     font-size: 0.85rem;
 }
 
+/* Update Lingkaran Avatar Foto */
 .avatar {
-    width: 50px;
-    height: 50px;
+    width: 60px;          /* Ukuran sedikit diperbesar agar foto terlihat jelas */
+    height: 60px;
     background: #f0f0f0;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    border: 2px solid var(--secondary-color);
+    border: 3px solid var(--secondary-color);
+    overflow: hidden;     /* Memastikan foto terpotong rapi mengikuti bentuk lingkaran */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Foto tidak akan peyot/terdistorsi */
 }
 
 .line {
@@ -253,21 +261,22 @@ body {
     margin-top: 10px;
 }
 
-/* Scrapbook / Polaroid */
+/* ==================== SCRAPBOOK / POLAROID ==================== */
 .scrapbook-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 15px 0;
+    gap: 12px;
+    margin: 20px 0;
 }
 
 .polaroid {
     background: white;
-    padding: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 1px solid #ddd;
+    padding: 10px 10px 15px 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
     transform: rotate(-2deg);
-    transition: transform 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
 }
 
@@ -275,41 +284,71 @@ body {
     transform: rotate(2deg);
 }
 
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    z-index: 5;
+}
+
 .polaroid img {
     width: 100%;
-    height: 100px;
+    height: 110px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 2px;
+    display: block;
 }
 
 .polaroid p {
     font-size: 0.75rem;
-    margin-top: 5px;
-    color: #555;
+    font-weight: 600;
+    margin-top: 8px;
+    color: #444;
+    text-align: center;
 }
 
-/* Modal */
+/* ==================== MODAL PREVIEW FOTO ==================== */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    z-index: 10000;
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
-    max-width: 85%;
-    max-height: 70%;
-    border-radius: 8px;
+    max-width: 90%;
+    max-height: 75vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    border: 3px solid #fff;
 }
 
 #modal-caption {
     color: white;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* ==================== ENVELOPE DESIGN (REALISTIC) ==================== */
