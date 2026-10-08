@@ -79,72 +79,80 @@
             </div>
         </section>
 
-        <!-- 4. THREE RANDOM PEOPLE -->
-        <section id="relationship" class="section">
-            <div class="card">
-                <h2>3 Random People 🤝</h2>
-                
-                <div class="avatar-map">
-                    <div class="avatar-node">
-                        <div class="avatar">🙋‍♂️</div>
-                        <span>Aku</span>
-                    </div>
-                    <div class="line"></div>
-                    <div class="avatar-node">
-                        <div class="avatar">🎧</div>
-                        <span>Jeje</span>
-                    </div>
-                    <div class="line"></div>
-                    <div class="avatar-node">
-                        <div class="avatar">🎮</div>
-                        <span>Lutfi</span>
-                    </div>
+        <!-- 4. THREE RANDOM PEOPLE (DENGAN FOTO) -->
+<section id="relationship" class="section">
+    <div class="card">
+        <h2>3 Random People 🤝</h2>
+        
+        <div class="avatar-map">
+            <div class="avatar-node">
+                <div class="avatar">
+                    <img src="foto-aku.jpg" alt="Aku">
                 </div>
-
-                <ul class="timeline-list">
-                    <li>Awalnya cuma kenal karena Roblox...</li>
-                    <li>Terus jadi sering chatan...</li>
-                    <li>Terus jadi teman...</li>
-                    <li>Dan ternyata sampai sekarang masih berteman!</li>
-                </ul>
-
-                <p class="plot-twist">Plot twist yang nggak direncanakan 😂</p>
-                <button class="btn-primary" onclick="goToSection('memories')">Lihat Scrapbook 📸</button>
+                <span>Aku</span>
             </div>
-        </section>
-
-        <!-- 5. OUR MEMORIES -->
-        <section id="memories" class="section">
-            <div class="card">
-                <h2>Random moments we somehow collected 📸</h2>
-                
-                <div class="scrapbook-grid">
-                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/FFB6C1/333333?text=Screenshot+Roblox', 'The Cidro incident 🎮')">
-                        <img src="https://via.placeholder.com/300x200/FFB6C1/333333?text=Screenshot+Roblox" alt="Roblox">
-                        <p>The Cidro incident 🎮</p>
-                    </div>
-                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/FFD1DC/333333?text=Foto+Jeje', 'Awal mula kenal Jeje')">
-                        <img src="https://via.placeholder.com/300x200/FFD1DC/333333?text=Foto+Jeje" alt="Jeje">
-                        <p>Awal mula kenal Jeje</p>
-                    </div>
-                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/E6E6FA/333333?text=Foto+Lutfi', 'Ketika Jeje ngenalin Lutfi')">
-                        <img src="https://via.placeholder.com/300x200/E6E6FA/333333?text=Foto+Lutfi" alt="Lutfi">
-                        <p>Ketika Jeje ngenalin Lutfi</p>
-                    </div>
-                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/CBF0F8/333333?text=Screenshot+Chat', 'Dari stranger jadi teman')">
-                        <img src="https://via.placeholder.com/300x200/CBF0F8/333333?text=Screenshot+Chat" alt="Chat">
-                        <p>Dari stranger jadi teman</p>
-                    </div>
-                    <div class="polaroid" onclick="openModal('https://via.placeholder.com/600x400/E7C6FF/333333?text=Momen+Random', 'And somehow we\'re still here 😂')">
-                        <img src="https://via.placeholder.com/300x200/E7C6FF/333333?text=Momen+Random" alt="Random">
-                        <p>And somehow we're still here 😂</p>
-                    </div>
+            <div class="line"></div>
+            <div class="avatar-node">
+                <div class="avatar"> 
+                    <img src="foto-jeje.jpg" alt="Jeje">
                 </div>
-
-                <button class="btn-primary" onclick="goToSection('message')">Buka Surat 💌</button>
+                <span>Jeje</span>
             </div>
-        </section>
+            <div class="line"></div>
+            <div class="avatar-node">
+                <div class="avatar">
+                    <img src="foto-lutfi.jpg" alt="Lutfi">
+                </div>
+                <span>Lutfi</span>
+            </div>
+        </div>
 
+        <ul class="timeline-list">
+            <li>Awalnya cuma kenal karena Roblox...</li>
+            <li>Terus jadi sering chatan...</li>
+            <li>Terus jadi teman...</li>
+            <li>Dan ternyata sampai sekarang masih berteman!</li>
+        </ul>
+
+        <p class="plot-twist">Plot twist yang nggak direncanakan 😂</p>
+        <button class="btn-primary" onclick="goToSection('memories')">Lihat Scrapbook 📸</button>
+    </div>
+</section>
+
+       <!-- 5. OUR MEMORIES (DENGAN FOTO ASLI) -->
+<section id="memories" class="section">
+    <div class="card">
+        <h2>Random moments we somehow collected 📸</h2>
+        
+        <div class="scrapbook-grid">
+            <!-- Foto 1: Roblox -->
+            <div class="polaroid" onclick="openModal('roblox.jpg', 'The Cidro incident 🎮')">
+                <img src="roblox.jpg" alt="Roblox">
+                <p>The Cidro incident 🎮</p>
+            </div>
+
+            <!-- Foto 2: Jeje -->
+            <div class="polaroid" onclick="openModal('momen1.jpg', 'masih awal-awal saling kenal')">
+                <img src="momen1.jpg" alt="Jeje">
+                <p>masih awal-awal saling kenal</p>
+            </div>
+
+            <!-- Foto 3: Lutfi -->
+            <div class="polaroid" onclick="openModal('momen2.jpg', 'Dari stranger jadi teman')">
+                <img src="momen2.jpg" alt="Lutfi">
+                <p>Dari stranger jadi teman</p>
+            </div>
+
+            <!-- Foto 4: Chat -->
+            <div class="polaroid" onclick="openModal('momen3.jpg', 'And somehow we\'re still here 😂')">
+                <img src="momen3.jpg" alt="Chat">
+                <p>And somehow we\'re still here 😂</p>
+            </div>
+        </div>
+
+        <button class="btn-primary" onclick="goToSection('message')">Buka Surat 💌</button>
+    </div>
+</section>
         <!-- Modal Image Viewer -->
         <div id="image-modal" class="modal" onclick="closeModal()">
             <span class="close-modal">&times;</span>
@@ -167,7 +175,7 @@
                         </div>
                         <div class="heart-seal">❤️</div>
                     </div>
-                    <p class="click-hint">Sentuh amplop untuk membuka ✉️</p>
+                    <p class="click-hint">Sentuh untuk membuka ✉️</p>
                 </div>
 
                 <div id="typed-message-container" class="hidden">
@@ -243,12 +251,12 @@
                     <p class="step-text" id="step1">Siapa sangka...</p>
                     <p class="step-text" id="step2">Ketemu Jeje secara nggak sengaja...</p>
                     <p class="step-text" id="step3">di map Cidro...</p>
-                    <p class="step-text" id="step4">terus dikenalin sama Lutfi...</p>
-                    <p class="step-text" id="step5">dan akhirnya...</p>
+                    <p class="step-text" id="step4">terus dikenalin ke keamu...</p>
+                    <p class="step-text" id="step5">dan pada akhirnya...</p>
                 </div>
 
                 <div id="final-reveal" class="hidden">
-                    <h1 class="highlight-title">KITA MASIH TEMENAN SAMPAI SEKARANG 😂❤️</h1>
+                    <h1 class="highlight-title">KITA JADI TEMEN SAMPAI SEKARANG 😂❤️</h1>
                     <h2 class="pixel-text">HAPPY BIRTHDAY LUTFI! 🎂🎉</h2>
                     <p class="final-subtext">Semoga hari ulang tahunmu menyenangkan dan semoga cerita random dari Roblox ini punya banyak chapter berikutnya.</p>
                     
